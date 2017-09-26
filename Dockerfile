@@ -38,4 +38,4 @@ RUN git clone https://github.com/rust-lang-nursery/rustup.rs.git && cd rustup.rs
     rm -rf rustup.rs
 
 
-CMD["/bin/true"]
+CMD ["/bin/true"]
