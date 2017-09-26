@@ -32,7 +32,7 @@ RUN adduser -s /bin/zsh  spacevim && \
     echo "spacevim ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \ 
     su spacevim
 
-
+USER spacevim
 WORKDIR /home/spacevim/
 
 RUN  curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
@@ -40,9 +40,13 @@ RUN  curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
 RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"  && \
     curl -sLf https://spacevim.org/install.sh | bash
 
+RUN mkdir go && echo "export GOPATH=GOPATH:/home/dengqi/go" >> /home/dengqi/.zsh_rc && echo "export PATH=PATH:/opt/go/bin" >> /home/dengqi/.zsh_rc && \
+    echo "export GOROOT=GOROOT:/opt/go" >> /home/dengqi/.zsh_rc
+
 COPY  init.vim /home/dengqi/.SpaceVim.d/init.vim
 
 COPY mk_key.sh /home/dengqi/mk_key.sh
+
 
 
 # RUN ./tmp/rustup install nightly
