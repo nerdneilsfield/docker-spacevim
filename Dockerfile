@@ -14,7 +14,7 @@ RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/ap
     apk add --no-cache cargo@testing rust@testing
 
 RUN git clone https://github.com/rust-lang-nursery/rustup.rs.git && cd rustup.rs && cargo build --release && mv target/release/rustup-init /tmp &&\
-    rm -rf rustup.rs
+    chmod 777 /tmp/rustup-init && rm -rf rustup.rs
 
 
 RUN wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz &&\
@@ -39,5 +39,6 @@ RUN  curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
 
 RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" 
 
+RUN ./tmp/rustup install nightly
 
 CMD ["/bin/true"]
