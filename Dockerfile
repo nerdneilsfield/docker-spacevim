@@ -22,11 +22,11 @@ RUN wget -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py  &&\
     pip2 install flake8 pylint  pyquery bs4 ptpython neovim &&\
     pip3 install flake8 pylint pyquery bs4 ptpyhton neovim
 
-RUN adduser -s /bin/zsh  spacevim \
-    echo "root:Docker!" | chpasswd \
-    echo "spacevim:Docker!" | chpasswd \
-    echo "spacevim ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-    su dengqi \
+RUN adduser -s /bin/zsh  spacevim && \
+    echo "root:Docker!" | chpasswd &&\
+    echo "spacevim:Docker!" | chpasswd && \
+    echo "spacevim ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \ 
+    su dengqi && \
 
 WORKDIR /home/dengqi/
 
