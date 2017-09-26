@@ -35,7 +35,7 @@ RUN adduser -s /bin/zsh  spacevim && \
 USER spacevim
 WORKDIR /home/spacevim/
 
-RUN  curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
+#RUN  curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
 
 RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"  && \
     curl -sLf https://spacevim.org/install.sh | bash
