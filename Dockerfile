@@ -23,8 +23,8 @@ RUN wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz &&\
 
 RUN wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py  &&\
     python /tmp/get-pip.py && python3 /tmp/get-pip.py && \
-    pip2 install flake8 pylint  pyquery bs4 ptpython neovim &&\
-    pip3 install flake8 pylint pyquery bs4 ptpyhton neovim
+    pip2 install flake8 pylint  bs4 ptpython neovim &&\
+    pip3 install flake8 pylint  bs4 ptpyhton neovim
 
 RUN adduser -s /bin/zsh  spacevim && \
     echo "root:Docker!" | chpasswd &&\
