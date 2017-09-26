@@ -38,7 +38,7 @@ WORKDIR /home/spacevim/
 #RUN  curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
 
 RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"  && \
-    curl -sLf https://spacevim.org/install.sh | bash
+    bash -c "$(curl -fsSL https://spacevim.org/install.sh)"
 
 RUN mkdir go && echo "export GOPATH=GOPATH:/home/dengqi/go" >> /home/dengqi/.zshrc && echo "export PATH=PATH:/opt/go/bin" >> /home/dengqi/.zshrc && \
     echo "export GOROOT=GOROOT:/opt/go" >> /home/dengqi/.zshrc
