@@ -1,7 +1,7 @@
 FROM alpine
 MAINTAINER  hama<hama@jzm.xyz>
 
-ENV RUSTUP_TOOLCHAIN=stable-x86_64-unknown-linux-musl
+# ENV RUSTUP_TOOLCHAIN=stable-x86_64-unknown-linux-musl
 
 RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
     apk update &&  \
@@ -13,8 +13,8 @@ RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/ap
     apk add --no-cache luajit ruby clang cmake ca-certificates gcc musl-dev make zlib-dev openssl-dev perl &&\
     apk add --no-cache cargo@testing rust@testing
 
-RUN git clone https://github.com/rust-lang-nursery/rustup.rs.git && cd rustup.rs && cargo build --release && mv target/release/rustup-init /tmp &&\
-    chmod 777 /tmp/rustup-init && rm -rf rustup.rs
+# RUN git clone https://github.com/rust-lang-nursery/rustup.rs.git && cd rustup.rs && cargo build --release && mv target/release/rustup-init /tmp &&\
+#     chmod 777 /tmp/rustup-init && rm -rf rustup.rs
 
 
 RUN wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz &&\
@@ -37,8 +37,14 @@ WORKDIR /home/spacevim/
 
 RUN  curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
 
-RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" 
+RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"  && \
+    curl -sLf https://spacevim.org/install.sh | bash
 
-RUN ./tmp/rustup install nightly
+COPY  init.vim /home/dengqi/.SpaceVim.d/init.vim
+
+COPY mk_key.sh /home/dengqi/mk_key.sh
+
+
+# RUN ./tmp/rustup install nightly
 
 CMD ["/bin/true"]
