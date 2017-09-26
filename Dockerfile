@@ -43,12 +43,12 @@ RUN    bash -c "$(curl -fsSL https://spacevim.org/install.sh)"
 
 
 
-RUN mkdir go && echo "export GOPATH=GOPATH:/home/dengqi/go" >> /home/dengqi/.zshrc && echo "export PATH=PATH:/opt/go/bin" >> /home/dengqi/.zshrc && \
-    echo "export GOROOT=GOROOT:/opt/go" >> /home/dengqi/.zshrc
+RUN mkdir go && echo "export GOPATH=GOPATH:/home/dengqi/go" >> /home/spacevim/.zshrc && echo "export PATH=PATH:/opt/go/bin" >> /home/spacevim/.zshrc && \
+    echo "export GOROOT=GOROOT:/opt/go" >> /home/spacevim/.zshrc
 
-COPY  init.vim /home/dengqi/.SpaceVim.d/init.vim
+COPY  init.vim /home/spacevim/.SpaceVim.d/init.vim
 
-COPY mk_key.sh /home/dengqi/mk_key.sh
+COPY mk_key.sh /home/spacevim/mk_key.sh
 
 
 # RUN ./tmp/rustup install nightly
