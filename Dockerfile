@@ -26,7 +26,7 @@ RUN wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py  &&\
     pip2 install flake8 pylint  bs4 ptpython neovim &&\
     pip3 install flake8 pylint  bs4 ptpython neovim
 
-RUN adduser -s /bin/zsh  spacevim && \
+RUN adduser -s /bin/zsh -D spacevim && \
     echo "root:Docker!" | chpasswd &&\
     echo "spacevim:Docker!" | chpasswd && \
     echo "spacevim ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \ 
