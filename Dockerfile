@@ -39,7 +39,7 @@ WORKDIR /home/spacevim/
 
 RUN    bash -c "$(curl -fsSL https://spacevim.org/install.sh)"
 
-RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+# RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 
 
