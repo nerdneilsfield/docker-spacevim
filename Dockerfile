@@ -4,7 +4,7 @@ MAINTAINER  jiangzeming<hama@jzm.xyz>
 # ENV RUSTUP_TOOLCHAIN=stable-x86_64-unknown-linux-musl
 ENV PASSWD spacevim-docker
 
-RUN pacman -Syyu && pacman -S archlinux-keyring
+RUN pacman -Syyu --noconfirm && pacman -S --noconfirm archlinux-keyring
 
 RUN pacman -S --noconfirm base-devel rust go cargo python python-pip python2 python2-pip ruby \
      luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh &&\
