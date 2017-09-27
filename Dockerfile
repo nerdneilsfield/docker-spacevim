@@ -6,7 +6,7 @@ ENV PASSWD spacevim-docker
 
 RUN pacman -Syyu --noconfirm && pacman -S --noconfirm archlinux-keyring
 
-RUN pacman -S --noconfirm base-devel rust go cargo python python-pip python2 python2-pip ruby \
+RUN pacman -S --noconfirm base-devel rust go git ddd valgrind cargo python python-pip python2 python2-pip ruby \
      luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh &&\
      rm -rf rm -rf /var/cache/pacman/pkg
 
