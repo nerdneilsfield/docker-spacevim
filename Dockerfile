@@ -11,7 +11,7 @@ RUN echo " mirrors-lan.geekpie.org 10.19.124.30" >> /etc/hosts
 RUN pacman -Syyu --noconfirm && pacman -S --noconfirm archlinux-keyring
 
 RUN pacman -S --noconfirm base-devel rust go git ddd valgrind cargo python python-pip python2 python2-pip ruby \
-     luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh wget curl &&\
+     luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh wget curl \
      nim nimble crystal shards  &&\
      rm -rf rm -rf /var/cache/pacman/pkg
 
