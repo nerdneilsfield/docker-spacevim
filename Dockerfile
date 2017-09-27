@@ -7,7 +7,8 @@ ENV PASSWD spacevim-docker
 RUN pacman -Syyu && pacman -S archlinux-keyring
 
 RUN pacman -S --noconfirm base-devel rust go cargo python python-pip python2 python2-pip ruby \
-     luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh
+     luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh &&\
+     rm -rf rm -rf /var/cache/pacman/pkg
 
 # RUN git clone https://github.com/rust-lang-nursery/rustup.rs.git && cd rustup.rs && cargo build --release && mv target/release/rustup-init /tmp &&\
 #     chmod 777 /tmp/rustup-init && rm -rf rustup.rs
