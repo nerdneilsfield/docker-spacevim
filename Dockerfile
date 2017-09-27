@@ -43,8 +43,8 @@ RUN    bash -c "$(curl -fsSL https://spacevim.org/install.sh)"
 
 
 
-RUN mkdir go && echo "export GOPATH=GOPATH:/home/dengqi/go" >> /home/spacevim/.zshrc && echo "export PATH=PATH:/opt/go/bin" >> /home/spacevim/.zshrc && \
-    echo "export GOROOT=GOROOT:/opt/go" >> /home/spacevim/.zshrc
+RUN mkdir go && echo "export GOPATH=$GOPATH:/home/dengqi/go" >> /home/spacevim/.zshrc && echo "export PATH=$PATH:/opt/go/bin" >> /home/spacevim/.zshrc && \
+    echo "export GOROOT=$GOROOT:/opt/go" >> /home/spacevim/.zshrc
 
 COPY  init.vim /home/spacevim/.SpaceVim.d/init.vim
 
