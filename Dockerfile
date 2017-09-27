@@ -4,10 +4,14 @@ MAINTAINER  jiangzeming<hama@jzm.xyz>
 # ENV RUSTUP_TOOLCHAIN=stable-x86_64-unknown-linux-musl
 ENV PASSWD spacevim-docker
 
+# ADD mirrorlist /etc/pacman.d/mirrorlist
+
+RUN echo " mirrors-lan.geekpie.org 10.19.124.30" >> /etc/hosts
+
 RUN pacman -Syyu --noconfirm && pacman -S --noconfirm archlinux-keyring
 
 RUN pacman -S --noconfirm base-devel rust go git ddd valgrind cargo python python-pip python2 python2-pip ruby \
-     luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh &&\
+     luajit vim nano neovim python-numpy python2-numpy python-scipy clang cmake zsh openssh wget curl &&\
      rm -rf rm -rf /var/cache/pacman/pkg
 
 # RUN git clone https://github.com/rust-lang-nursery/rustup.rs.git && cd rustup.rs && cargo build --release && mv target/release/rustup-init /tmp &&\
@@ -34,7 +38,7 @@ WORKDIR /home/spacevim/
 
 RUN    bash -c "$(curl -fsSL https://spacevim.org/install.sh)"
 
-# RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 
 
