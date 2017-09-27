@@ -11,15 +11,16 @@ RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/ap
     apk add --no-cache libgit2-dev nodejs-npm &&\
     apk add --no-cache python2  python3 python3-dev python3-doc  python2-dev python2-doc &&\
     apk add --no-cache luajit ruby clang cmake ca-certificates gcc musl-dev make zlib-dev openssl-dev perl &&\
-    apk add --no-cache cargo@testing rust@testing
+    apk add --no-cache cargo@testing rust@testing &&\
+    apk add --no-cache go
 
 # RUN git clone https://github.com/rust-lang-nursery/rustup.rs.git && cd rustup.rs && cargo build --release && mv target/release/rustup-init /tmp &&\
 #     chmod 777 /tmp/rustup-init && rm -rf rustup.rs
 
 
-RUN wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz &&\
-    tar xvf go1.9.linux-amd64.tar.gz &&\
-    mv go /opt/ 
+# RUN wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz &&\
+#     tar xvf go1.9.linux-amd64.tar.gz &&\
+#     mv go /opt/ 
 
 RUN wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py  &&\
     python /tmp/get-pip.py && python3 /tmp/get-pip.py && \
